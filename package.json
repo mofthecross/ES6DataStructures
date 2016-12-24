@@ -1,0 +1,26 @@
+{
+  "name": "es6datastructures",
+  "version": "1.0.0",
+  "description": "es6 implementation of data structures",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mofthecross/ES6DataStructures.git"
+  },
+  "keywords": [
+    "ES6",
+    "Datastructures"
+  ],
+  "author": "mofthecross",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mofthecross/ES6DataStructures/issues"
+  },
+  "homepage": "https://github.com/mofthecross/ES6DataStructures#readme",
+  "devDependencies": {
+  "chai": "^3.5.0"
+  }
+}
