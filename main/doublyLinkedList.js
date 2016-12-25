@@ -12,6 +12,7 @@ class DoublyLinkedList {
     this._tail = null;
     this._length = 0;
   }
+  
   prepend(value) {
     let node = new Node(value);
 
@@ -25,6 +26,7 @@ class DoublyLinkedList {
     this._length++;
     return this._head;
   }
+
   append(value) {
     let node = new Node(value);
 
@@ -38,11 +40,22 @@ class DoublyLinkedList {
     this._length++;
     return this._tail;
   }
+
   size(){
     return this._length;
   }
-}
 
+  remove(node) {
+    if (this._head.data === node.data) {
+      this._head = this._head.next;
+    } else if (this._tail.data === node.data) {
+      this._tail = this._tail.prev;
+    } else {
+      node.prev.next = node.next;
+    }
+    this._length--;
+  };
+}
 
 module.exports.Node = Node;
 module.exports.DoublyLinkedList = DoublyLinkedList
