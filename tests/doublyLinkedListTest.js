@@ -57,7 +57,7 @@ describe('DoublyLinkedList class', function() {
 
     expect(DLL.size()).to.equal(10);
   });
-  //
+
   it('should return a node with value passed in after append and prepend is invoked', function() {
     let DLL = new test.DoublyLinkedList();
     DLL.append('MDLC');

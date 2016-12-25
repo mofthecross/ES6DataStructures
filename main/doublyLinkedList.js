@@ -41,7 +41,7 @@ class DoublyLinkedList {
     return this._tail;
   }
 
-  size(){
+  size() {
     return this._length;
   }
 
