@@ -12,7 +12,7 @@ class DoublyLinkedList {
     this._tail = null;
     this._length = 0;
   }
-  
+
   prepend(value) {
     let node = new Node(value);
 
@@ -55,7 +55,15 @@ class DoublyLinkedList {
     }
     this._length--;
   };
+
+  head() {
+    return this._head;
+  }
+
+  tail() {
+    return this._tail;
+  }
 }
 
 module.exports.Node = Node;
-module.exports.DoublyLinkedList = DoublyLinkedList
+module.exports.DoublyLinkedList = DoublyLinkedList;
