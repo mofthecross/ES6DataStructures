@@ -14,13 +14,25 @@ class DoublyLinkedList {
   }
   prepend(value) {
     let node = new Node(value);
-    
+
     if (this._length === 0) {
       this._head = this._tail = node;
     } else {
       this._head.prev = node;
       node.next = this._head;
       this._head = node;
+    }
+    this._length++;
+  }
+  append(value) {
+    let node = new Node(value);
+
+    if (this._length === 0) {
+      this._head = this._tail = node;
+    } else {
+      this._tail.next = node;
+      node.prev = this._tail;
+      this._tail = node;
     }
     this._length++;
   }
