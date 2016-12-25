@@ -36,6 +36,9 @@ class DoublyLinkedList {
     }
     this._length++;
   }
+  size(){
+    return this._length;
+  }
 }
 
 
