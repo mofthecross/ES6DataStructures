@@ -23,6 +23,7 @@ class DoublyLinkedList {
       this._head = node;
     }
     this._length++;
+    return this._head;
   }
   append(value) {
     let node = new Node(value);
@@ -35,6 +36,7 @@ class DoublyLinkedList {
       this._tail = node;
     }
     this._length++;
+    return this._tail;
   }
   size(){
     return this._length;
