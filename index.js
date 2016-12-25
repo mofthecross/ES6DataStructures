@@ -1,1 +1,1 @@
-var DoublyLinkedList = require('./main/doublyLinkedList.js').DoublyLinkedList
+module.exports.DoublyLinkedList = require('./main/doublyLinkedList.js').DoublyLinkedList
