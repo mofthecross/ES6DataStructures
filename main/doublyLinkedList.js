@@ -31,8 +31,8 @@ class DoublyLinkedList {
     let node = new Node(value);
 
     if (this._length === 0) {
-      this._head = node;
-      this._tail = node;
+      this._head = this._tail = node;
+
     } else {
       this._tail.next = node;
       node.prev = this._tail;
@@ -53,6 +53,7 @@ class DoublyLinkedList {
       this._tail = this._tail.prev;
     } else {
       node.prev.next = node.next;
+      node.next.prev = node.prev;
     }
     this._length--;
   };
