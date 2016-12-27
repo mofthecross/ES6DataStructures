@@ -48,10 +48,8 @@ class DoublyLinkedList {
 
   remove(node) {
     if (this._head.data === node.data) {
-      this._head.next.prev = null;
       this._head = this._head.next;
     } else if (this._tail.data === node.data) {
-      this._tail.prev.next = null;
       this._tail = this._tail.prev;
     } else {
       node.prev.next = node.next;
