@@ -91,6 +91,18 @@ describe('graph class', function(){
     });
   });
 
+  describe('graph removeVertex method', function(){
+    it('should remove a vertex when deleted', function(){
+      var graph = new test.Graph();
+
+      graph.addVertex('Second Chance');
+      expect(graph.vertices['Second Chance'].value).to.equal('Second Chance');
+      expect(graph.totalVertices).to.equal(1);
+
+      graph.removeVertex('Second Chance');
+      expect(graph.vertices['Second Chance']).to.equal(undefined);
+    })
+  })
 
 
 });
