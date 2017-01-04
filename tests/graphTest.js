@@ -118,4 +118,23 @@ describe('graph class', function(){
     });
   });
 
+  describe('graph removeEdge method', function(){
+    it('should remove an edge between two vertices', function(){
+      var graph = new test.Graph();
+
+      graph.addVertex('San Juan Del Sur');
+      graph.addVertex('Cagayan');
+
+      graph.addEdge('San Juan Del Sur', 'Cagayan');
+
+      expect(graph.vertices['San Juan Del Sur'].edges['Cagayan']).to.equal('Cagayan');
+      expect(graph.vertices['Cagayan'].edges['San Juan Del Sur']).to.equal('San Juan Del Sur');
+
+      graph.removeEdge('San Juan Del Sur', 'Cagayan');
+      expect(graph.vertices['San Juan Del Sur'].edges['Cagayan']).to.equal(undefined);
+      expect(graph.vertices['Cagayan'].edges['San Juan Del Sur']).to.equal(undefined);
+      expect(graph.totalEdges).to.equal(0);
+    });
+  });
+
 })
