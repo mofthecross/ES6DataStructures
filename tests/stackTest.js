@@ -6,12 +6,14 @@ describe('stack class', function(){
     expect(new test.Stack).to.be.an('object');
     expect(new test.Stack).to.be.an.instanceof(test.Stack);
   });
+  
   describe('stack properties', function(){
     it('should have a length property', function(){
       const stack = new test.Stack();
       expect(stack).to.have.property('length');
     });
   });
+
   describe('stack class method existance', function(){
     it('should have push and pop properties ', function(){
       const stack = new test.Stack();
@@ -19,6 +21,7 @@ describe('stack class', function(){
       expect(stack).to.respondTo('pop');
     });
   });
+
   describe('push', function(){
     it('should increase the length by one every time a value is pushed', function(){
       const stack = new test.Stack();
@@ -28,7 +31,7 @@ describe('stack class', function(){
       expect(stack.length).to.equal(5);
     });
   });
-  
+
   describe('pop', function(){
     it('should return the most recently added value', function(){
       const stack = new test.Stack();
