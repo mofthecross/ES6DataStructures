@@ -39,35 +39,35 @@ describe('graph class', function(){
   describe('graph addVertex method', function(){
     it('should add a single vertex', function(){
       const graph = new test.Graph();
-      expect(graph.vertices['mofthecross']).to.equal(undefined);
+      expect(graph.vertices['Heroes vs. Villains']).to.equal(undefined);
 
-      graph.addVertex('mofthecross');
-      expect(graph.vertices['mofthecross'].value).to.equal('mofthecross');
+      graph.addVertex('Heroes vs. Villains');
+      expect(graph.vertices['Heroes vs. Villains'].value).to.equal('Heroes vs. Villains');
       expect(graph.totalVertices).to.equal(1);
     })
 
     it('should add two vertices', function(){
       const graph = new test.Graph();
-      expect(graph.vertices['mofthecross']).to.equal(undefined);
+      expect(graph.vertices['Heroes vs. Villains']).to.equal(undefined);
 
-      graph.addVertex('mofthecross');
-      expect(graph.vertices['mofthecross'].value).to.equal('mofthecross');
+      graph.addVertex('Heroes vs. Villains');
+      expect(graph.vertices['Heroes vs. Villains'].value).to.equal('Heroes vs. Villains');
       expect(graph.totalVertices).to.equal(1);
 
-      graph.addVertex('good');
-      expect(graph.vertices['good'].value).to.equal('good');
+      graph.addVertex('Blood vs. Water');
+      expect(graph.vertices['Blood vs. Water'].value).to.equal('Blood vs. Water');
       expect(graph.totalVertices).to.equal(2);
     });
 
     it('should not increase the totalVertices count when the vertex already exists', function(){
       const graph = new test.Graph();
-      expect(graph.vertices['mofthecross']).to.equal(undefined);
+      expect(graph.vertices['Samoa']).to.equal(undefined);
 
-      graph.addVertex('mofthecross');
-      expect(graph.vertices['mofthecross'].value).to.equal('mofthecross');
+      graph.addVertex('Samoa');
+      expect(graph.vertices['Samoa'].value).to.equal('Samoa');
       expect(graph.totalVertices).to.equal(1);
 
-      graph.addVertex('mofthecross');
+      graph.addVertex('Samoa');
       expect(graph.totalVertices).to.equal(1);
     });
   });
