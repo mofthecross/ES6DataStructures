@@ -17,4 +17,11 @@ class Graph {
       this.totalVertices++;
     }
   }
+  getVertex(id) {
+    if (this.vertices[id] !== undefined) {
+      return this.vertices[id];
+    } else {
+      console.log('id does not exist');
+    }
+  }
 }
