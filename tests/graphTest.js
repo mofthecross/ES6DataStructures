@@ -72,4 +72,25 @@ describe('graph class', function(){
     });
   });
 
-})
+  describe('graph getVertex method', function(){
+    it('should return the entire vertex of the queried ID', function(){
+      const graph = new test.Graph();
+
+      graph.addVertex('MvGx');
+      const result = graph.getVertex('MvGx');
+
+      expect(result.value).to.equal('MvGx');
+      expect(result).to.have.property('value');
+      expect(result).to.have.property('edges');
+    })
+
+    it('should return undefined when the vertex ID doesn not exist', function(){
+      const graph = new test.Graph();
+      const result = graph.getVertex('notHere');
+      expect(result).to.equal(undefined);
+    });
+  });
+
+
+
+});
