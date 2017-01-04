@@ -4,3 +4,11 @@ class Vertex {
     this.edges = {};
   }
 }
+
+class Graph {
+  constructor() {
+    this.vertices = {};
+    this.totalVertices = 0;
+    this.totalEdges = 0;
+  }
+}
