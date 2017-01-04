@@ -23,7 +23,8 @@ describe('graph class', function(){
   });
 
   describe('graph methods existence', function(){
-    it('should have methods addVertex, getVertex, removeVertex, addEdge, removeEdge, findNeighbors, and forEachNode', function(){
+    it('should have methods addVertex, getVertex, removeVertex, addEdge,
+      removeEdge, findNeighbors, breadthFirstSearch,depth and forEachNode', function(){
       const graph = new test.Graph();
 
       expect(graph).to.respondTo('addVertex');
@@ -33,6 +34,8 @@ describe('graph class', function(){
       expect(graph).to.respondTo('removeEdge');
       expect(graph).to.respondTo('findNeighbors');
       expect(graph).to.respondTo('forEachNode');
+      expect(graph).to.respondTo('breadthFirstSearch');
+      expect(graph).to.respondTo('depthFirstSearch');
     });
   });
 
@@ -82,7 +85,7 @@ describe('graph class', function(){
       expect(result.value).to.equal('MvGx');
       expect(result).to.have.property('value');
       expect(result).to.have.property('edges');
-    })
+    });
 
     it('should return undefined when the vertex ID doesn not exist', function(){
       const graph = new test.Graph();
@@ -172,7 +175,67 @@ describe('graph class', function(){
 
       const result = graph.findNeighbors('Redemption Island');
       expect(result.length).to.equal(0);
-    })
-  })
+    });
+  });
 
-})
+  describe('graph breadthFirstSearch method', function(){
+    it('return an array of values from given vertex in a breadth first traversal order', function(){
+      const graph = new test.Graph();
+      const toInsert = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
+      toInsert.forEach(function(element) {
+        graph.addVertex(element);
+      });
+
+      /*Example Graph:
+
+             B     E
+           /   \  /
+         A       D  --- F
+           \   /   \   /
+             C       G
+      */
+      graph.addEdge('A', 'B');
+      graph.addEdge('A', 'C');
+      graph.addEdge('D', 'B');
+      graph.addEdge('D', 'C');
+      graph.addEdge('D', 'E');
+      graph.addEdge('D', 'F');
+      graph.addEdge('D', 'G');
+      graph.addEdge('F', 'G');
+
+      expect(graph.breadthFirstSearch('A')).to.deep.equal(toInsert);
+    });
+  });
+
+  describe('graph depthFirstSearch method', function(){
+    it('return an array of values from given vertex in a depth first traversal order', function(){
+      const graph = new test.Graph();
+      const toInsert = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
+
+      toInsert.forEach(function(element) {
+        graph.addVertex(element);
+      });
+
+      /*Example Graph:
+
+             B     E
+           /   \  /
+         A       D  --- F
+           \   /   \   /
+             C       G
+      */
+
+      graph.addEdge('A', 'B');
+      graph.addEdge('A', 'C');
+      graph.addEdge('D', 'B');
+      graph.addEdge('D', 'C');
+      graph.addEdge('D', 'E');
+      graph.addEdge('D', 'F');
+      graph.addEdge('D', 'G');
+      graph.addEdge('F', 'G');
+
+      expect(graph.depthFirstSeach('A')).to.deep.equal(['A','C','D','G','F','E','B']);
+    });
+  });
+
+});
