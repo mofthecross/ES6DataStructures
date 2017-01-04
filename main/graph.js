@@ -73,4 +73,9 @@ class Graph {
       console.log("ID of vertex does not exit");
     }
   }
+  forEach(cb){
+    for(vertexId in this.vertices) {
+      cb(this.vertices[vertexId]);
+    }
+  }
 }
