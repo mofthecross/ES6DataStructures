@@ -93,7 +93,7 @@ describe('graph class', function(){
 
   describe('graph removeVertex method', function(){
     it('should remove a vertex when deleted', function(){
-      var graph = new test.Graph();
+      const graph = new test.Graph();
 
       graph.addVertex('Second Chance');
       expect(graph.vertices['Second Chance'].value).to.equal('Second Chance');
@@ -101,8 +101,21 @@ describe('graph class', function(){
 
       graph.removeVertex('Second Chance');
       expect(graph.vertices['Second Chance']).to.equal(undefined);
-    })
-  })
+    });
+  });
 
+  describe('graph addEdge method', function(){
+    it('should create an edge between two vertices', function(){
+      var graph = new test.Graph();
 
-});
+      graph.addVertex('Kaoh Rong');
+      graph.addVertex('Worlds Apart');
+
+      graph.addEdge('Kaoh Rong', 'Worlds Apart');
+
+      expect(graph.vertices['Kaoh Rong'].edges['Worlds Apart']).to.equal('Worlds Apart');
+      expect(graph.vertices['Worlds Apart'].edges['Kaoh Rong']).to.equal('Kaoh Rong');
+    });
+  });
+
+})

@@ -24,7 +24,7 @@ class Graph {
       console.log('id does not exist');
     }
   }
-  addEdge(id) {
+  addEdge(id1, id2) {
     if (this.vertices[id1] !== undefined && this.vertices[id2] !== undefined) {
       if(this.vertices[id1].edges[id2] === undefined && this.vertices[id2].edges[id1] === undefined) {
         this.vertices[id1].edges[id2] = id2;
@@ -62,7 +62,8 @@ class Graph {
       console.log("vertex does not exist!");
     }
   }
-  findNeighbor(id) {
+
+  findNeighbors(id) {
     let neighbors = [];
     if (this.vertices[id] !== undefined) {
       for(let edge in this.vertices[id].edges) {
@@ -73,9 +74,12 @@ class Graph {
       console.log("ID of vertex does not exit");
     }
   }
-  forEach(cb){
+  forEachNode(cb){
     for(vertexId in this.vertices) {
       cb(this.vertices[vertexId]);
     }
   }
 }
+
+module.exports.Vertex = Vertex;
+module.exports.Graph = Graph;
