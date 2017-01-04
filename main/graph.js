@@ -62,4 +62,15 @@ class Graph {
       console.log("vertex does not exist!");
     }
   }
+  findNeighbor(id) {
+    let neighbors = [];
+    if (this.vertices[id] !== undefined) {
+      for(let edge in this.vertices[id].edges) {
+        neighbors.push(edge);
+      }
+      return neighbors;
+    } else {
+      console.log("ID of vertex does not exit");
+    }
+  }
 }
