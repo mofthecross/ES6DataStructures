@@ -1,23 +1,20 @@
 class Stack {
   constructor() {
     this._storage = {};
-    this._length = 0;
+    this.length = 0;
   }
   push(data) {
-    this._storage[this._length + 1] = data;
-    this._length++;
+    this._storage[this.length + 1] = data;
+    this.length++;
   }
   pop() {
-    if (this._length > 0) {
-      const deleted = this._storage[this._length];
-      delete this._storage[this._length];
-      this._length--;
+    if (this.length > 0) {
+      const deleted = this._storage[this.length];
+      delete this._storage[this.length];
+      this.length--;
       return deleted;
     }
   }
 }
 
-let newStack = new Stack();
-newStack.push('8');
-newStack.pop()
-console.log(newStack);
+module.exports.Stack = Stack;
