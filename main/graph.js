@@ -37,4 +37,17 @@ class Graph {
       console.log('either vertex or both do not exists!');
     }
   }
+  removeEdge(id1, id2) {
+    if (this.vertices[id1] !== undefined && this.vertices[id2] !== undefined) {
+      if(this.vertices[id1].edges[id2] !== undefined && this.vertices[id2].edges[id1] !== undefined) {
+        delete this.vertices[id1].edges[id2];
+        delete this.vertices[id2].edges[id1];
+        this.totalEdges--;
+      } else {
+        console.log('edge does not exist!');
+      }
+    } else {
+      console.log('either vertex or both do not exists!')
+    }
+  }
 }
