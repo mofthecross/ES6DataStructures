@@ -106,7 +106,7 @@ describe('graph class', function(){
 
   describe('graph addEdge method', function(){
     it('should create an edge between two vertices', function(){
-      var graph = new test.Graph();
+      const graph = new test.Graph();
 
       graph.addVertex('Kaoh Rong');
       graph.addVertex('Worlds Apart');
@@ -120,7 +120,7 @@ describe('graph class', function(){
 
   describe('graph removeEdge method', function(){
     it('should remove an edge between two vertices', function(){
-      var graph = new test.Graph();
+      const graph = new test.Graph();
 
       graph.addVertex('San Juan Del Sur');
       graph.addVertex('Cagayan');
@@ -136,5 +136,43 @@ describe('graph class', function(){
       expect(graph.totalEdges).to.equal(0);
     });
   });
+
+  describe('graph findNeighbors method', function(){
+    it("should return an array of the neighbors' IDs", function(){
+      const graph = new test.Graph();
+
+      graph.addVertex('Caramoan');
+      graph.addVertex('Philippines');
+      graph.addVertex('South Pacific');
+      graph.addVertex('Redemption Island');
+
+      graph.addEdge('Caramoan', 'Philippines');
+      graph.addEdge('Caramoan', 'South Pacific');
+
+      expect(graph.vertices['Caramoan'].edges['Philippines']).to.equal('Philippines');
+      expect(graph.vertices['Philippines'].edges['Caramoan']).to.equal('Caramoan');
+      expect(graph.vertices['Caramoan'].edges['South Pacific']).to.equal('South Pacific');
+      expect(graph.vertices['South Pacific'].edges['Caramoan']).to.equal('Caramoan');
+
+      const result = graph.findNeighbors('Caramoan');
+      expect(result).to.include('Philippines');
+      expect(result).to.include('South Pacific');
+    })
+
+    it("should return an empty array when there's no edges", function(){
+      const graph = new test.Graph();
+
+      graph.addVertex('Caramoan');
+      graph.addVertex('Philippines');
+      graph.addVertex('South Pacific');
+      graph.addVertex('Redemption Island');
+
+      graph.addEdge('Caramoan', 'Philippines');
+      graph.addEdge('Caramoan', 'South Pacific');
+
+      const result = graph.findNeighbors('Redemption Island');
+      expect(result.length).to.equal(0);
+    })
+  })
 
 })
