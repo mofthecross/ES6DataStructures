@@ -1,8 +1,8 @@
 class Node {
 	constructor(value) {
 		this.value = !value ? null : value;
-		this.left = null;
-		this.right = null;
+		this.leftChild = null;
+		this.rightChild = null;
 	}
 }
 
@@ -19,20 +19,20 @@ class BinarySearchTree {
       let currentNode = this.root;
       while(currentNode.value) {
         if (value < currentNode.value) {
-          if (currentNode.left === null) {
-            currentNode.left = new Node(value);
+          if (currentNode.leftChild === null) {
+            currentNode.leftChild = new Node(value);
             this.size++;
             break;
           } else {
-            currentNode = currentNode.left;
+            currentNode = currentNode.leftChild;
           }
         } else {
-          if (currentNode.right === null) {
-            currentNode.right = new Node(value);
+          if (currentNode.rightChild === null) {
+            currentNode.rightChild = new Node(value);
             this.size++;
             break;
           } else {
-            currentNode = currentNode.right;
+            currentNode = currentNode.rightChild;
           }
         }
       }
@@ -45,11 +45,24 @@ class BinarySearchTree {
         return true;
       }
       if (currentNode.value > value) {
-        currentNode = currentNode.left;
+        currentNode = currentNode.leftChild;
       } else {
-        currentNode = currentNode.right;
+        currentNode = currentNode.rightChild;
       }
     }
     return false;
   }
 }
+
+var initial = new Node(5);
+var rightChildTarget = new Node(10);
+var leftChildTarget = new Node(2);
+
+initial.rightChild = rightChildTarget;
+initial.leftChild = leftChildTarget;
+
+console.log(initial.leftChild.value);
+
+
+module.exports.Node = Node;
+module.exports.BinarySearchTree = BinarySearchTree;
