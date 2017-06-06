@@ -11,13 +11,16 @@ class BinarySearchTree {
 		this.root = null;
     this.size = 0;
 	}
+
   insert(value) {
     if(!this.root) {
       this.root = new Node(value);
       this.size++;
     } else {
       let currentNode = this.root;
-      while(currentNode.value) {
+
+      while(currentNode !== null) {
+
         if (value < currentNode.value) {
           if (currentNode.leftChild === null) {
             currentNode.leftChild = new Node(value);
@@ -38,6 +41,7 @@ class BinarySearchTree {
       }
     }
   }
+
   search(value) {
     let currentNode = this.root;
     while (currentNode) {
@@ -53,15 +57,6 @@ class BinarySearchTree {
     return false;
   }
 }
-
-var initial = new Node(5);
-var rightChildTarget = new Node(10);
-var leftChildTarget = new Node(2);
-
-initial.rightChild = rightChildTarget;
-initial.leftChild = leftChildTarget;
-
-console.log(initial.leftChild.value);
 
 
 module.exports.Node = Node;

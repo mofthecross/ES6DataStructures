@@ -1,5 +1,5 @@
 const expect = require('chai').expect;
-const BinarySearchTree = require('../main/binarySearchTree.js').binarySearchTree;
+const BinarySearchTree = require('../main/binarySearchTree.js').BinarySearchTree;
 const Node = require('../main/binarySearchTree.js').Node;
 
 
@@ -8,7 +8,7 @@ describe('binary search tree node', function() {
 
   describe('creation of a node', function() {
     it('should exist: ', function() {
-      var test = new Node();
+      const test = new Node();
 
       expect(test).to.not.equal(undefined);
     });
@@ -16,7 +16,7 @@ describe('binary search tree node', function() {
 
   describe('encoding a value', function() {
     it('should store a value: ', function() {
-      var test = new Node();
+      const test = new Node();
 
       expect(test).to.have.property('value');
       expect(test.value).to.equal(null);
@@ -28,9 +28,9 @@ describe('binary search tree node', function() {
 
   describe('pointing to another node', function() {
     it('should be able to point to another node: ', function() {
-      var initial = new Node(5);
-      var rightTarget = new Node(10);
-      var leftTarget = new Node(2);
+      const initial = new Node(5);
+      const rightTarget = new Node(10);
+      const leftTarget = new Node(2);
 
       expect(initial).to.have.property('value');
       expect(initial).to.have.property('rightChild');
@@ -52,7 +52,7 @@ describe('binary search tree class ', function() {
 
   describe('BinarySearchTree properties', function() {
     it('should have properties root and size', function() {
-      var test = new BinarySearchTree();
+      const test = new BinarySearchTree();
 
       expect(test).to.have.property('root');
       expect(test).to.have.property('size');
@@ -63,7 +63,7 @@ describe('binary search tree class ', function() {
 
   describe('BinarySearchTree methods existence', function(){
     it('should have methods insert and search', function(){
-      var test = new BinarySearchTree();
+      const test = new BinarySearchTree();
 
       expect(test).to.respondTo('insert');
       expect(test).to.respondTo('search');
@@ -72,7 +72,7 @@ describe('binary search tree class ', function() {
 
   describe('BinarySearchTree insert method', function(){
     it('should be able to insert a single node', function(){
-      var test = new BinarySearchTree();
+      const test = new BinarySearchTree();
 
       expect(test.root).to.equal(null);
       expect(test.size).to.equal(0);
@@ -86,7 +86,7 @@ describe('binary search tree class ', function() {
     });
 
     it('should be able to insert a second node', function(){
-      var test = new BinarySearchTree();
+      const test = new BinarySearchTree();
 
       expect(test.root).to.equal(null);
       expect(test.size).to.equal(0);
@@ -109,7 +109,7 @@ describe('binary search tree class ', function() {
 
   describe('BinarySearchTree search method', function(){
     it('should return true when the node exists', function(){
-      var test = new BinarySearchTree();
+      const test = new BinarySearchTree();
       test.insert(5);
       test.insert(10);
 
@@ -117,7 +117,7 @@ describe('binary search tree class ', function() {
     });
 
     it('should return false when the node does not exist', function(){
-      var test = new BinarySearchTree();
+      const test = new BinarySearchTree();
       test.insert(5);
       test.insert(10);
 
@@ -127,7 +127,7 @@ describe('binary search tree class ', function() {
 
   // describe('BinarySearchTree remove method', function(){
   //   it('should delete a node', function(){
-  //     var test = new BinarySearchTree();
+  //     const test = new BinarySearchTree();
   //     [5,10,2,7,1].map(function(value) {
   //       test.insert(value);
   //     });
@@ -141,7 +141,7 @@ describe('binary search tree class ', function() {
   //   });
   //
   //   it('should modify the size when deleting a node', function(){
-  //     var test = new BinarySearchTree();
+  //     const test = new BinarySearchTree();
   //     [5,10,2,7,1].map(function(value) {
   //       test.insert(value);
   //     });
