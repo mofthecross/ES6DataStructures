@@ -50,4 +50,4 @@ const stringify = (obj, space) => {
   }, space);
 }
 
-module.exports = stringify
+module.exports.stringify = stringify
