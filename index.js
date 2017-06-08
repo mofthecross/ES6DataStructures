@@ -6,4 +6,4 @@ module.exports.BinarySearchTree = require('./main/binarySearchTree.js').BinarySe
 module.exports.BinaryTreeNode = require('./main/binaryTreeNode.js').BinaryTreeNode;
 
 // utils
-module.exports.stringify = require('./ultils.js').stringify;
+module.exports.stringify = require('./utils.js').stringify;
