@@ -14,6 +14,11 @@ class MinHeap {
     this.storage[index2] = temp;
   }
 
+  //returns the 'root/top' item in the 'tree';
+  peak() {
+    return this.storage[0];
+  }
+
 }
 
 module.exports.MinHeap = MinHeap;
