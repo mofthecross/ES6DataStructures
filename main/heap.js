@@ -68,6 +68,16 @@ class MinHeap {
             parentIndex: (6 - 2) / 2 = 2 -> [7]
   */
 
+  getParentIndex(childIndex) {
+    let parentIndex;
+    if (childIndex % 2 === 0) {
+      parentIndex = (childIndex - 2) / 2;
+    } else {
+      parentIndex = (childIndex - 1) / 2;
+    }
+    return parentIndex;
+  }
+
 }
 
 module.exports.MinHeap = MinHeap;
