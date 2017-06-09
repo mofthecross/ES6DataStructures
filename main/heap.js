@@ -87,6 +87,20 @@ class MinHeap {
     return toReturn;
   }
 
+  bubbleDown(parentIndex) {
+    let masterChildIndex = this.getMasterChildIndex(parentIndex);
+
+    while(parentIndex < this.size() - 1 && masterChildIndex !== -1 &&
+     this.storage[parentIndex] > this.storage[masterChildIndex]) {
+
+       this.swap(parentIndex, masterChildIndex);
+       parentIndex = masterChildIndex;
+       masterChildIndex = this.getMasterChildIndex(parentIndex);
+
+    }
+    return;
+  }
+
 }
 
 module.exports.MinHeap = MinHeap;
