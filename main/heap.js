@@ -101,6 +101,31 @@ class MinHeap {
     return;
   }
 
+  getChildrenIndeces(parentIndex) {
+    return {
+      left: (2 * parentIndex) + 1,
+      right: (2 * parentIndex) + 2
+    }
+  }
+  getMasterChildIndex(parentIndex) {
+    let children = this.getChildrenIndeces(parentIndex);
+    let leftChildIndex = children.left;
+    let rightChildIndex = children.right;
+
+    //if leftChildIndex is out of bound
+    if (leftChildIndex >= this.size()) {
+      return -1;
+    //if rightChildIndex is out of bound, set masterChildIndex as leftChildIndex
+    } else if ( rightChildIndex >= this.size()) {
+      return leftChildIndex;
+    //always set masterChildIndex to childIndex with the smaller value
+    } else if ( this.storage[leftChildIndex] < this.storage[rightChildIndex] ) {
+      return leftChildIndex;
+    } else {
+      return rightChildIndex;
+    }
+  }
+
 }
 
 module.exports.MinHeap = MinHeap;
