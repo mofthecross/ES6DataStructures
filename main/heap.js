@@ -19,6 +19,11 @@ class MinHeap {
     return this.storage[0];
   }
 
+  insert(item) {
+    this.storage.push(item);
+    this.bubbleUp(this.storage.length - 1);
+  }
+
 }
 
 module.exports.MinHeap = MinHeap;
