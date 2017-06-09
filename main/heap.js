@@ -24,6 +24,16 @@ class MinHeap {
     this.bubbleUp(this.storage.length - 1);
   }
 
+  bubbleUp(childIndex) {
+    let parentIndex = this.getParentIndex(childIndex);
+
+    while(childIndex > 0 && this.storage[parentIndex] > this.storage[childIndex]) {
+      this.swap(childIndex, parentIndex);
+      childIndex = parentIndex;
+      parentIndex = this.getParentIndex(childIndex);
+    }
+  }
+
 }
 
 module.exports.MinHeap = MinHeap;
