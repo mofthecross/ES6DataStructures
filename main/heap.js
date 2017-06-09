@@ -78,6 +78,15 @@ class MinHeap {
     return parentIndex;
   }
 
+  removePeak() {
+    let firstIndex = 0;
+    let lastIndex = this.storage.length - 1;
+    this.swap(firstIndex, lastIndex);
+    const toReturn = this.storage.pop();
+    this.bubbleDown(firstIndex);
+    return toReturn;
+  }
+
 }
 
 module.exports.MinHeap = MinHeap;
