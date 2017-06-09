@@ -34,6 +34,40 @@ class MinHeap {
     }
   }
 
+  /*
+            0
+           /  \
+         1      7
+       /  \    /  \
+      2    5  8    10
+     /
+    9
+    index:  0 1 2 3 4 5  6 7
+    array: [0,1,7,2,5,8,10,9];
+
+    to find parent's children in array consider the ff:
+      leftChildIndex: 2 * parent + 1
+      rightChildIndex: (2 * parent) + 2;
+      ex:
+          parenIndex:
+              2 -> [7];
+          leftChildIndex:
+              (2 * 2) + 1 = 5 -> [8]
+          rightChildIndex:
+              (2 * 2) + 2 = 6 -> [10]
+
+    to find child's parent in array, consder the ff:
+      childIndex is odd:
+         parentIndex: (childIndex - 1) / 2
+      childIndex is even:
+         parentIndex: (childIndex - 2) / 2
+      ex:
+          childIndex: 5 -> [8]
+            parentIndex: (5 - 1) / 2 = 2 -> [7]
+          childINdex: 6 -> [10]
+            parentIndex: (6 - 2) / 2 = 2 -> [7]
+  */
+
 }
 
 module.exports.MinHeap = MinHeap;
