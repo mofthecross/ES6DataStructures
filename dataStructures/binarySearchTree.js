@@ -1,6 +1,8 @@
-class Node {
+const BaseNode = require('./baseNode.js');
+
+class Node extends BaseNode {
 	constructor(value) {
-		this.value = !value ? null : value;
+		super(value);
 		this.leftChild = null;
 		this.rightChild = null;
 	}
