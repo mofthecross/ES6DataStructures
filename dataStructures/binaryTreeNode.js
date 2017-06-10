@@ -1,9 +1,4 @@
-class BinaryTreeNode {
-  constructor(value) {
-    this.value = value;
-    this.leftChild = null;
-    this.rightChild = null;
-  }
-}
+const BinaryTreeNode = require('./binarySearchTree.js').Node;
 
-module.exports.BinaryTreeNode = BinaryTreeNode;
+
+module.exports.BinaryTreeNode;
