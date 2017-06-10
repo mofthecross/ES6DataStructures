@@ -27,4 +27,32 @@ describe('min heap tree class ', function() {
         expect(test).to.respondTo('size');
     });
   });
+
+
+  describe('MinHeap insert method', function(){
+    it('should be able to insert a single value and return peak value ', function(){
+      const test = new MinHeap();
+
+      expect(test.size()).to.equal(0);
+
+      test.insert(5);
+      expect(test.peak()).to.equal(5);
+      expect(test.size()).to.equal(1);
+    });
+
+    it('should be able to insert a second value', function(){
+      const test = new MinHeap();
+
+      expect(test.size()).to.equal(0);
+
+      test.insert(5);
+      expect(test.peak()).to.equal(5);
+      expect(test.size()).to.equal(1);
+
+      test.insert(10);
+      expect(test.peak()).to.equal(5);
+      expect(test.size()).to.equal(2);
+    });
+  });
+
 });
