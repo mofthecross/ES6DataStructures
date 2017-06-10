@@ -1,6 +1,8 @@
-class Node {
+const BaseNode = require('./baseNode.js');
+
+class Node extends BaseNode {
   constructor(value) {
-    this.data = value;
+    super(value);
     this.next = null;
     this.prev = null;
   }
@@ -47,9 +49,9 @@ class DoublyLinkedList {
   }
 
   remove(node) {
-    if (this._head.data === node.data) {
+    if (this._head.value === node.value) {
       this._head = this._head.next;
-    } else if (this._tail.data === node.data) {
+    } else if (this._tail.value === node.value) {
       this._tail = this._tail.prev;
     } else {
       node.prev.next = node.next;

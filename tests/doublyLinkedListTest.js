@@ -16,7 +16,7 @@ describe('Node class', function() {
 
   it('should assign the value passed in as an argument to the data propety', function() {
     const Node = new test.Node('a new value');
-    expect(Node.data).to.equal('a new value');
+    expect(Node.value).to.equal('a new value');
   });
 });
 
@@ -37,8 +37,8 @@ describe('DoublyLinkedList class', function() {
     let DLL = new test.DoublyLinkedList();
     [1,2,3,4,5,6,7,8,9,10].forEach( num => DLL.prepend(num));
 
-    expect(DLL._head.data).to.equal(10);
-    expect(DLL._tail.data).to.equal(1);
+    expect(DLL._head.value).to.equal(10);
+    expect(DLL._tail.value).to.equal(1);
     expect(DLL._length).to.equal(10);
   });
 
@@ -46,8 +46,8 @@ describe('DoublyLinkedList class', function() {
     let DLL = new test.DoublyLinkedList();
     [1,2,3,4,5,6,7,8,9,10].forEach( num => DLL.append(num));
 
-    expect(DLL._head.data).to.equal(1);
-    expect(DLL._tail.data).to.equal(10);
+    expect(DLL._head.value).to.equal(1);
+    expect(DLL._tail.value).to.equal(10);
     expect(DLL._length).to.equal(10);
   });
 
@@ -80,16 +80,16 @@ describe('DoublyLinkedList class', function() {
     expect(DLL.size()).to.equal(4);
     DLL.remove(head);
     expect(DLL.size()).to.equal(3);
-    expect(DLL._head.data).to.equal('gotta');
+    expect(DLL._head.value).to.equal('gotta');
     DLL.remove(DLL._tail);
     expect(DLL.size()).to.equal(2);
     let reallyDeep = DLL.append('like really deep');
     let willBeRemoved = DLL.append('almost there');
     DLL.append('tribe has spoken');
     expect(DLL.size()).to.equal(5);
-    expect(DLL._tail.data).to.equal('tribe has spoken');
+    expect(DLL._tail.value).to.equal('tribe has spoken');
     DLL.remove(willBeRemoved);
-    expect(reallyDeep.next.data).to.equal('tribe has spoken');
+    expect(reallyDeep.next.value).to.equal('tribe has spoken');
     expect(DLL.size()).to.equal(4);
   });
 });
