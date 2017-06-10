@@ -1,12 +1,12 @@
 const expect = require('chai').expect;
-const test = require('../main/stack.js');
+const test = require('../dataStructures/stack.js');
 
 describe('stack class', function(){
   it('should instantiate stack class', function(){
     expect(new test.Stack).to.be.an('object');
     expect(new test.Stack).to.be.an.instanceof(test.Stack);
   });
-  
+
   describe('stack properties', function(){
     it('should have a length property', function(){
       const stack = new test.Stack();

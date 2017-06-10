@@ -1,5 +1,5 @@
 const expect = require('chai').expect;
-const test = require('../main/Graph.js');
+const test = require('../dataStructures/Graph.js');
 
 
 describe('graph class', function(){

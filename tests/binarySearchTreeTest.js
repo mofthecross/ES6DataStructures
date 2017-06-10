@@ -1,6 +1,6 @@
 const expect = require('chai').expect;
-const BinarySearchTree = require('../main/binarySearchTree.js').BinarySearchTree;
-const Node = require('../main/binarySearchTree.js').Node;
+const BinarySearchTree = require('../dataStructures/binarySearchTree.js').BinarySearchTree;
+const Node = require('../dataStructures/binarySearchTree.js').Node;
 
 
 

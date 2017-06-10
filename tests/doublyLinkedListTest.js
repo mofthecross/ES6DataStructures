@@ -1,5 +1,5 @@
 const expect = require('chai').expect;
-const test = require('../main/doublyLinkedList.js');
+const test = require('../dataStructures/doublyLinkedList.js');
 
 
 describe('Node class', function() {

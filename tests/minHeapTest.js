@@ -1,5 +1,5 @@
 const expect = require('chai').expect;
-const MinHeap = require('../main/heap.js').MinHeap;
+const MinHeap = require('../dataStructures/heap.js').MinHeap;
 
 describe('min heap tree class ', () =>  {
 
