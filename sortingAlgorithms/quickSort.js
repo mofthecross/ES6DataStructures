@@ -27,4 +27,4 @@ function quickSort(array) {
   return array;
 }
 
-console.log( quickSort([4,15,16,50,8,23,42,108]));
+module.exports.quickSort = quickSort;
