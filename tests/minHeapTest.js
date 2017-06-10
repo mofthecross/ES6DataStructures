@@ -56,27 +56,40 @@ describe('min heap tree class ', () =>  {
   });
 
   describe('MinHeap removePeak method', () => {
-    it('should delete a value and reogarnize elements according to min heap rules', () => {
-/*
-              0
-             /  \
-           1      7
-         /  \    /  \
-        2    5  8    10
-      /
-      9
-      index:  0 1 2 3 4 5  6 7
-      array: [0,1,7,2,5,8,10,9];
-*/
-      const test = new MinHeap();
-      [0,1,7,2,5,8,10,9].map(function(value) {
-        test.insert(value);
-      });
+    /*
+                  0
+                 /  \
+               1      7
+             /  \    /  \
+            2    5  8    10
+          /
+          9
+          index:  0 1 2 3 4 5  6 7
+          array: [0,1,7,2,5,8,10,9];
+    */
+    const test = new MinHeap();
+    const testValues = [0,1,7,2,5,8,10,9]
+    testValues.map(function(value) {
+      test.insert(value);
+    });
 
+    it('should delete a value and reogarnize elements to min heap rules', () => {
       expect(test.peak() === 0).to.equal(true);
       test.removePeak();
       expect(test.peak()).to.equal(1);
       test.insert(0);
+    });
+
+    it('should always delete the minimum value', () => {
+      let sortedTestValues = testValues.sort((a,b) => a-b);
+      let index = 0;
+
+      while ( test.size() > 0) {
+        let removed = test.removePeak();
+        //console.log('removed', removed, sortedTestValues[index])
+        expect(removed === sortedTestValues[index]).to.equal(true);
+        index += 1;
+      }
     });
   });
 
