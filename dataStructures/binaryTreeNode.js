@@ -1,8 +1,8 @@
 class BinaryTreeNode {
   constructor(value) {
     this.value = value;
-    this.leftChild= null;
-    this.rightChild= null;
+    this.leftChild = null;
+    this.rightChild = null;
   }
 }
 
