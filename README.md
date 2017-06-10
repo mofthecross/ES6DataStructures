@@ -6,24 +6,28 @@ Instruction:
 
 # Data Structures
 
-Linear             | status               | test
------------------- | -------------------- | ----
-Stack              | [complete] [PlDb]    | yes
-Queue              | [complete] [PlGh]    | no
-Linked List        | [in progress] [PlGd] | no
-Doubly Linked List | [complete] [PlGh]    | yes
+Linear             | status      | test
+------------------ | ----------- | ----
+Stack              | complete    | yes
+Queue              | complete    | no
+Linked List        | in progress | no
+Doubly Linked List | complete    | yes
 
-Non-linear / other | status               | test
------------------- | -------------------- | ----
-Binary Tree        | [complete] [PlDb]    | no
-Binary Search Tree | [complete] [PlGh]    | yes
-Graph              | [complete] [PlGd]    | yes
-Heap(min-heap)     | [complete] [PlGh]    | yes
-Heap(max-heap)     | [in progress] [PlGd] | no
+Non-linear / other | status      | test
+------------------ | ----------- | ----
+Binary Tree        | complete    | no
+Binary Search Tree | complete    | yes
+Graph              | complete    | yes
+Heap(min-heap)     | complete    | yes
+Heap(max-heap)     | in progress | no
+LRU Cache          | in progress | no
+Trie               | in progress | no
+Suffix Tree        | in progress | no
 
 # Sorting Algorithms
 
-name       | status            | test
----------- | ----------------- | ----
-Merge Sort | [complete] [PlDb] | no
-Quick Sort | [complete] [PlGh] | no
+name       | status   | test
+---------- | -------- | ----
+Merge Sort | complete | no
+Quick Sort | complete | no
+HeapSort   | complete | no
