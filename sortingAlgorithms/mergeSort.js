@@ -47,4 +47,4 @@ function mergeSort(array) {
   return divide(array);
 }
 
-module.exports.quickSort = quickSort;
+module.exports.mergeSort = mergeSort;
