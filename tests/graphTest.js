@@ -23,8 +23,7 @@ describe('graph class', function(){
   });
 
   describe('graph methods existence', function(){
-    it('should have methods addVertex, getVertex, removeVertex, addEdge,
-      removeEdge, findNeighbors, breadthFirstSearch,depth and forEachNode', function(){
+    it('should have methods addVertex, getVertex, removeVertex, addEdge, removeEdge, findNeighbors, breadthFirstSearch,depth and forEachNode', function(){
       const graph = new test.Graph();
 
       expect(graph).to.respondTo('addVertex');
@@ -234,7 +233,7 @@ describe('graph class', function(){
       graph.addEdge('D', 'G');
       graph.addEdge('F', 'G');
 
-      expect(graph.depthFirstSeach('A')).to.deep.equal(['A','C','D','G','F','E','B']);
+      expect(graph.depthFirstSearch('A')).to.deep.equal(['A','C','D','G','F','E','B']);
     });
   });
 

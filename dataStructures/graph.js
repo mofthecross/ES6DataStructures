@@ -1,9 +1,14 @@
-class Vertex {
+const BaseNode = require('./baseNode.js');
+
+class Vertex extends BaseNode {
   constructor(id) {
-    this.value = id;
+    super(id);
     this.edges = {};
   }
 }
+
+let newV = new Vertex(3);
+console.log(newV)
 
 class Graph {
   constructor() {
@@ -114,7 +119,7 @@ Graph.prototype.breadthFirstSearch = function(id) {
 }
 
 
-Graph.prototype.depthFirstSeach = function(id) {
+Graph.prototype.depthFirstSearch = function(id) {
   const result = [],
         stack = new Stack(),
         travelled = {};
