@@ -107,6 +107,7 @@ class MinHeap {
       right: (2 * parentIndex) + 2
     }
   }
+
   getMasterChildIndex(parentIndex) {
     let children = this.getChildrenIndeces(parentIndex);
     let leftChildIndex = children.left;
