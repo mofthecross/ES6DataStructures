@@ -16,14 +16,17 @@ class DoublyLinkedList {
   }
 
   prepend(value) {
-    let node = new Node(value);
+    const newNode = new Node(value);
 
     if (this._length === 0) {
-      this._head = this._tail = node;
+      this._head = this._tail = newNode;
     } else {
-      this._head.prev = node;
-      node.next = this._head;
-      this._head = node;
+      const oldHead = this._head;
+      newNode.next = oldHead;
+
+      oldHead.prev = newNode;
+
+      this._head = newNode;
     }
     this._length++;
     return this._head;
@@ -53,6 +56,7 @@ class DoublyLinkedList {
       this._head = this._head.next;
     } else if (this._tail.value === node.value) {
       this._tail = this._tail.prev;
+      this._tail.next = null;
     } else {
       node.prev.next = node.next;
       node.next.prev = node.prev;
