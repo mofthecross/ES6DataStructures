@@ -71,4 +71,25 @@ class HashTable {
     }
   }
 
+  resize(newBucketLimit) {
+    let tempStorage = [];
+    //put all tuples in tempStorage;
+    this.storage.forEach( bucket => {
+      if (bucket !== undefined) {
+        bucket.forEach( tuple => {
+          tempStorage.push(tuple);
+        });
+      }
+    });
+    //asign new bucket limit, empty storage, reset size to 0;
+    this.buckets = newBucketLimit;
+    this.storage = [];
+    this.size = 0;
+
+    // re-insert all the pairs in the storage with new bucket limit
+    tempStorage.forEach( tuple => {
+      this.insert(tuple[0], tuple[1]);
+    });
+  }
+
 }
