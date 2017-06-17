@@ -26,4 +26,13 @@ describe('hash table class ', () =>  {
     });
   });
 
+  describe('hashTable hash method', () => {
+    it('should return an index from an inputted string and bucket limit of 8', () => {
+      const test = new HashTable();
+
+      const expected = test.hash('hello', 8);
+      expect(expected).to.equal(1);
+    })
+  });
+
 })
