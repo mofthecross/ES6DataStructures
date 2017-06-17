@@ -57,6 +57,23 @@ describe('hash table class ', () =>  {
       expect(test.storage[6][0][1]).to.equal('luck');
     });
 
+    it('should be able to handle collisions', () => {
+      const test = new HashTable();
+      expect(test.storage.length).to.equal(0);
+      expect(test.size).to.equal(0);
+
+      test.insert('good', 5);
+
+      expect(test.size).to.equal(1);
+      expect(test.storage[6][0][0]).to.equal('good');
+      expect(test.storage[6][0][1]).to.equal(5);
+
+      test.insert('back', 10);
+      expect(test.size).to.equal(2);
+      expect(test.storage[6][1][0]).to.equal('back');
+      expect(test.storage[6][1][1]).to.equal(10);
+    });
+
   });
 
 })
