@@ -20,5 +20,24 @@ class HashTable {
   size() {
     return this.size;
   }
+  // adds a key-value pair
+  insert(key, value) {
+    let index = this.hash(key, this.buckets);
+    let bucket = this.storage[index] || [];
+    // if bucket is empty add key value pair as tuple;
+    if (bucket.length === 0) {
+      bucket.push([key, value]);
+    } else {
+    // if key already exists in the bucket returns
+      bucket.forEach( tuple => {
+        if (tuple[0] === key) {
+          tuple[1] = value;
+          return;
+        }
+      });
+      bucket.push([key, value]);
+    }
+    this.size++;
+  }
 
 }
