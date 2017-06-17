@@ -71,11 +71,13 @@ class HashTable {
     if (bucket.length === 0) {
       return null;
     } else {
+      let value;
       bucket.forEach( tuple => {
         if (tuple[0] === key) {
-          return tuple[1];
+          value = tuple[1];
         }
-      })
+      });
+      return value;
     }
   }
 
