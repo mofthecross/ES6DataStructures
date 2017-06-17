@@ -41,4 +41,19 @@ class HashTable {
     this.size++;
   }
 
+  delete(key) {
+    let index = this.hash(key, this.buckets);
+    let bucket = this.storage[index] || [];
+    if (bucket.length === 0) {
+      return;
+    } else {
+      bucket.forEach( tuple => {
+        if (tuple[0] === key) {
+          delete tuple;
+          this.size--;
+        }
+      });
+    }
+  }
+
 }
