@@ -17,9 +17,6 @@ class HashTable {
     return hash % buckets;
   }
 
-  size() {
-    return this.size;
-  }
   // adds a key-value pair
   insert(key, value) {
     let index = this.hash(key, this.buckets);
@@ -27,6 +24,7 @@ class HashTable {
     // if bucket is empty add key value pair as tuple;
     if (bucket.length === 0) {
       bucket.push([key, value]);
+      this.storage[index] = bucket;
     } else {
     // if key already exists in the bucket update override the current value;
       bucket.forEach( tuple => {
@@ -42,7 +40,7 @@ class HashTable {
     // double the bucket limit when load factor is between 0.6 - 0.8 to decrease collisons;
     // load factor = (number of entries / number of buckets);
 
-    if (this.size() > (this.bucket * 3 / 4)) {
+    if (this.size > (this.bucket * 3 / 4)) {
       this.resize( this.buckets * 2);
     }
   }
@@ -53,9 +51,9 @@ class HashTable {
     if (bucket.length === 0) {
       return;
     } else {
-      bucket.forEach( tuple => {
+      bucket.forEach( (tuple, index)=> {
         if (tuple[0] === key) {
-          delete tuple;
+          delete bucket[index];
           this.size--;
           // cut bucket limit in half when in load factor is less than 0.25;
           if (0.25 > (this.size / this.buckets)) {
