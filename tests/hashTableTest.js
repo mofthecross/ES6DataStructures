@@ -105,12 +105,42 @@ describe('hash table class ', () =>  {
     const test = new HashTable();
     it('should return true for a key-value pair that exists', () => {
       test.insert('hello', 'from the other side');
-      
+
       expect(test.retrieve('hello')).to.equal('from the other side');
     });
 
     it('should return false for a key-value pair that does not exist', () => {
       expect(test.retrieve('good')).to.equal(null);
+    });
+  });
+
+  describe('hashTable resize method', () => {
+    const test = new HashTable();
+
+    test.insert('michael', 1);
+    test.insert('jack', 10);
+    test.insert('jake', 2);
+    test.insert('aja', 3);
+    test.insert('skyler', 8);
+    test.insert('francisco', 1);
+    test.insert('jasmine', 1);
+    test.insert('yuri', 1);
+    test.insert('sagaree', 1);
+    test.insert('aditi', 1);
+    
+    it('should double the number of buckets when the size exceeds 75% of buckets capacity', () => {
+      expect(test.buckets).to.equal(16);
+    });
+
+    it('should halve the number of buckets when the size drops below 25% of bucket capacity', () => {
+      test.delete('michael');
+      test.delete('jack');
+      test.delete('francisco');
+      test.delete('jake');
+      test.delete('skyler');
+      test.delete('yuri');
+      test.delete('aja');
+      expect(test.buckets).to.equal(8);
     });
   });
 
