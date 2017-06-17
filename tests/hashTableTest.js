@@ -76,21 +76,28 @@ describe('hash table class ', () =>  {
 
   });
   describe('hashTable delete method', () => {
+    const test = new HashTable();
+
+    expect(test.storage.length).to.equal(0);
+    expect(test.size).to.equal(0);
+
     it('should delete a key-value pair', () => {
-      const test = new HashTable();
-
-      expect(test.storage.length).to.equal(0);
-      expect(test.size).to.equal(0);
-
       test.insert('hello', 'is it me you are looking for?');
-
       expect(test.size).to.equal(1);
       expect(test.storage[1][0][0]).to.equal('hello');
       expect(test.storage[1][0][1]).to.equal('is it me you are looking for?');
 
       test.delete('hello');
-
       expect(test.size).to.equal(0);
+    });
+
+    it('should not modify the size when deleting a key-value pair that does not exist', () => {
+      test.insert('hello', 'can you hear me?');
+      test.insert('hallo', 'is it me you are looking for?');
+      expect(test.size).to.equal(2);
+
+      test.delete('great');
+      expect(test.size).to.equal(2);
     });
   });
 
