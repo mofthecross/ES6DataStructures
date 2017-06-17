@@ -40,7 +40,7 @@ class HashTable {
     // double the bucket limit when load factor is between 0.6 - 0.8 to decrease collisons;
     // load factor = (number of entries / number of buckets);
 
-    if (this.size > (this.bucket * 3 / 4)) {
+    if (this.size > (this.buckets * 3 / 4)) {
       this.resize( this.buckets * 2);
     }
   }
