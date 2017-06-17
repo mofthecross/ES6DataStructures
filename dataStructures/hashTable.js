@@ -7,7 +7,7 @@ class HashTable {
     this.storage = [];
   }
 
-  hash (str, buckets) {
+  hash(str, buckets) {
     let hash = 5381;
     for (let i = 0; i < str.length; i++) {
       let char = str.charCodeAt(i);
@@ -16,4 +16,9 @@ class HashTable {
     }
     return hash % buckets;
   }
+
+  size() {
+    return this.size;
+  }
+
 }
