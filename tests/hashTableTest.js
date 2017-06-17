@@ -15,4 +15,15 @@ describe('hash table class ', () =>  {
     });
   });
 
+  describe('hashTable methods existence', () => {
+    it('should have methods hash, insert, delete, and retrieve', () => {
+      const test = new HashTable();
+
+      expect(test).to.respondTo('hash');
+      expect(test).to.respondTo('insert');
+      expect(test).to.respondTo('delete');
+      expect(test).to.respondTo('retrieve');
+    });
+  });
+
 })
