@@ -28,13 +28,14 @@ class HashTable {
     if (bucket.length === 0) {
       bucket.push([key, value]);
     } else {
-    // if key already exists in the bucket returns
+    // if key already exists in the bucket update override the current value;
       bucket.forEach( tuple => {
         if (tuple[0] === key) {
           tuple[1] = value;
           return;
         }
       });
+    // otherwise just a new key value pair in bucket;
       bucket.push([key, value]);
     }
     this.size++;
