@@ -39,6 +39,12 @@ class HashTable {
       bucket.push([key, value]);
     }
     this.size++;
+    // double the bucket limit when load factor is between 0.6 - 0.8 to decrease collisons;
+    // load factor = (number of entries / number of buckets);
+    
+    if (this.size() > (this.bucket * 3 / 4)) {
+      this.resize( this.buckets * 2);
+    }
   }
 
   delete(key) {
@@ -86,7 +92,7 @@ class HashTable {
     this.storage = [];
     this.size = 0;
 
-    // re-insert all the pairs in the storage with new bucket limit
+    // re-hash all the pairs in the storage with new bucket limit
     tempStorage.forEach( tuple => {
       this.insert(tuple[0], tuple[1]);
     });
