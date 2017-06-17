@@ -35,4 +35,19 @@ describe('hash table class ', () =>  {
     })
   });
 
+  describe('hashTable insert method', () => {
+    it('should be able to insert a key-value pair', () => {
+      const test = new HashTable();
+
+      expect(test.storage.length).to.equal(0);
+      expect(test.size).to.equal(0);
+
+      test.insert('hello', 'world');
+
+      expect(test.size).to.equal(1);
+      expect(test.storage[1][0][0]).to.equal('hello');
+      expect(test.storage[1][0][1]).to.equal('world');
+    });
+  });
+
 })
