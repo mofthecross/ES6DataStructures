@@ -101,4 +101,17 @@ describe('hash table class ', () =>  {
     });
   });
 
+  describe('hashTable retrieve method', () => {
+    const test = new HashTable();
+    it('should return true for a key-value pair that exists', () => {
+      test.insert('hello', 'from the other side');
+      
+      expect(test.retrieve('hello')).to.equal('from the other side');
+    });
+
+    it('should return false for a key-value pair that does not exist', () => {
+      expect(test.retrieve('good')).to.equal(null);
+    });
+  });
+
 })
