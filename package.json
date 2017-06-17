@@ -1,7 +1,7 @@
 {
   "name": "es6datastructuresandalgorithms",
   "version": "1.0.0",
-  "description": "es6 implementation of data structures algorithms",
+  "description": "es6 implementation of data structures and algorithms",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
