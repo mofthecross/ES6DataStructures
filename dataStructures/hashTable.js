@@ -19,11 +19,11 @@ class HashTable {
 
   // adds a key-value pair
   insert(key, value) {
-    let index = this.hash(key, this.buckets);
-    let bucket = this.storage[index] || [];
+    let bucket = this.getBucket(key, this.buckets);
     // if bucket is empty add key value pair as tuple;
     if (bucket.length === 0) {
       bucket.push([key, value]);
+      const index = this.hash(key, this.buckets);
       this.storage[index] = bucket;
     } else {
     // if key already exists in the bucket update override the current value;
@@ -46,8 +46,7 @@ class HashTable {
   }
 
   delete(key) {
-    let index = this.hash(key, this.buckets);
-    let bucket = this.storage[index] || [];
+    let bucket = this.getBucket(key, this.buckets);
     if (bucket.length === 0) {
       return;
     } else {
@@ -65,9 +64,7 @@ class HashTable {
   }
 
   retrieve(key) {
-    let index = this.hash(key, this.buckets);
-    let bucket = this.storage[index] || [];
-
+    let bucket = this.getBucket(key, this.buckets);
     if (bucket.length === 0) {
       return null;
     } else {
@@ -100,6 +97,12 @@ class HashTable {
     tempStorage.forEach( tuple => {
       this.insert(tuple[0], tuple[1]);
     });
+  }
+
+  getBucket(key, bucketLimit) {
+    let index = this.hash(key, bucketLimit);
+    let bucket = this.storage[index] || [];
+    return bucket;
   }
 
 }
