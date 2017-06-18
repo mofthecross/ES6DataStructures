@@ -12,6 +12,7 @@ Stack              | complete    | yes
 Queue              | complete    | no
 Linked List        | in progress | no
 Doubly Linked List | complete    | yes
+HashTable          | complete    | yes
 
 Non-linear / other | status      | test
 ------------------ | ----------- | ----
@@ -26,8 +27,8 @@ Suffix Tree        | in progress | no
 
 # Sorting Algorithms
 
-name       | status   | test
----------- | -------- | ----
-Merge Sort | complete | no
-Quick Sort | complete | no
-HeapSort   | complete | no
+name       | status      | test
+---------- | ----------- | ----
+Merge Sort | complete    | no
+Quick Sort | complete    | no
+HeapSort   | in progress | no
